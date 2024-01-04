@@ -3,6 +3,11 @@ const bcrypt = require("bcrypt");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
+const createToken = (_id) => {
+    const jwtKey = process.env.JWT_KEY;
+
+    return jwt.sign({ _id }, jwtKey);
+}
 
 
 const register = async (req, res) => {
@@ -42,11 +47,26 @@ const register = async (req, res) => {
 
 }
 
-const createToken = (_id) => {
-    const jwtKey = process.env.JWT_KEY;
+const login = async (req, res) => {
+    const {email, password} = req.body;
 
-    return jwt.sign({ _id }, jwtKey);
+    try{
+        let user = await userModel.findOne({ email });
+
+        if(!user){
+            return res.status(400).json("Invalid email or password.");
+        }
+
+        const isValidPassword = bcrypt.compare(password, user.password);
+        if(!isValidPassword){
+            return res.status(400).json("Invalid password");
+        }
+        const token = createToken(user._id);
+        res.status(200).json({ _id: user.id, name: user.name, email, token });        
+    } catch(e){
+
+    }
 }
 
 
-module.exports = { register };
+module.exports = { register, login };
