@@ -8,11 +8,6 @@ const createToken = (_id) => {
 
     return jwt.sign({ _id }, jwtKey);
 }
-const createToken = (_id) => {
-    const jwtKey = process.env.JWT_KEY;
-
-    return jwt.sign({ _id }, jwtKey);
-}
 
 
 const register = async (req, res) => {
