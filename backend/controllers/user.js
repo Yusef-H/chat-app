@@ -8,6 +8,11 @@ const createToken = (_id) => {
 
     return jwt.sign({ _id }, jwtKey);
 }
+const createToken = (_id) => {
+    const jwtKey = process.env.JWT_KEY;
+
+    return jwt.sign({ _id }, jwtKey);
+}
 
 
 const register = async (req, res) => {
@@ -48,25 +53,38 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
-    try{
+    try {
         let user = await userModel.findOne({ email });
 
-        if(!user){
+        if (!user) {
             return res.status(400).json("Invalid email or password.");
         }
 
         const isValidPassword = bcrypt.compare(password, user.password);
-        if(!isValidPassword){
+        if (!isValidPassword) {
             return res.status(400).json("Invalid password");
         }
         const token = createToken(user._id);
-        res.status(200).json({ _id: user.id, name: user.name, email, token });        
-    } catch(e){
+        res.status(200).json({ _id: user.id, name: user.name, email, token });
+    } catch (e) {
 
     }
 }
 
 
-module.exports = { register, login };
+const findUser = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const user = await userModel.findById(id);
+        console.log(user);
+        res.status(200).json(user);
+    }
+    catch (e) {
+        res.status(500).json(e);
+    }
+}
+
+
+module.exports = { register, findUser, login };
