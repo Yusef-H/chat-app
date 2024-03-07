@@ -1,31 +1,38 @@
+@font-face{
+    font-family: mainTitle;
+    src: url(../utils/BungeeSpice-Regular.ttf);
+}
+
 .navbar {
-    padding: 20px;
-    margin-bottom: 10px;
-    width: calc(100vw - 40px);
-    background-color: #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-flow: nowrap;
+    background-color: rgb(20, 164, 221);
+    padding: 20px;
+    position: fixed;
+    width: calc(100vw - 40px); /* minus padding */
+    height: 3rem;
+    box-shadow: 2px 2px silver;
 }
 
 .navbar .main a {
     color: white;
     padding: 5px;
-    font-size: 2rem;
+    font-family: mainTitle;
+    font-size: 3rem;
     border-radius: 8px;
     text-decoration: none;
-
+}
+.navbar .main a:hover {
+    background-color: aqua;
 }
 
-
-
-.name {
+.navbar .name {
     align-self: center;
     justify-self: center;
-    color: green;
-    font-size: 1.25rem;
-
+    color: rgb(138, 97, 22);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .navbar .links {
@@ -33,16 +40,101 @@
     gap: 20px;
     justify-content: flex-end;
     align-items: center;
-
-
 }
 
 .navbar .links a {
     color: white;
     text-decoration: none;
-
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 1.5rem;
 }
 
 .navbar a:hover {
-    color: red;
+    background-color: aqua;
+    color: orange;
+}
+
+.menu{
+    display: none;
+}
+
+/* Add media query for the menu button */
+@media (max-width: 450px) {
+    .menu {
+        display: flex;
+        max-width: 5rem;
+        margin-left: 20px;
+        background-color: white;
+        border: 2px solid black;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .menu:hover {
+        cursor: pointer;
+    }
+
+    .menu>* {
+        width: 30px;
+    }
+
+    .navbar .name, .navbar .links {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        left: 0;
+    }
+    .navbar .name{
+        padding-top: 30px;
+        background-color: rgb(135, 206, 235, 0.5);
+        top: calc(3rem + 40px);
+    }
+    .navbar .links{
+        top: calc(13rem);
+    }
+    .navbar .links a{
+        color: black;
+    }
+
+    .navbar .links.expanded, .navbar .name.expanded {
+        display: flex;
+    }
+
+    .navbar .name {
+        animation: 1.25s drop-name-bg;
+    }
+
+
+    @keyframes drop-name-bg {
+        from {
+            background-color: white;
+            transform: translate(0, -75px);
+        }
+
+        to {
+            background-color: rgb(135, 206, 235, 0.5);
+            transform: translate(0, 0);
+        }
+    }
+
+    .navbar .links{
+        animation: 1.25s drop-links;
+    }
+
+    @keyframes drop-links {
+        from {
+            transform: translate(0, -75px);
+        }
+
+        to {
+            transform: translate(0, 0);
+        }
+    }
+
 }

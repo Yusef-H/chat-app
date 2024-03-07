@@ -1,18 +1,26 @@
 import '../styles/navbar.css'
+import menuIcon from '../utils/menuIcon.svg';
+import {useState} from 'react';
 import { Link, Outlet } from 'react-router-dom';
 function Navbar() {
+    const [isNavExpanded, setIsNavExpanded] = useState(false);
+
     return <>
         <nav className='navbar'>
-            <div className='main'>
+            <div className="main">
                 <Link to="/">Chat</Link>
             </div>
-            <span className='name'>Username : Yusef</span>
-            <div className="links">
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+
+            <button className="menu"
+                onClick={() => {setIsNavExpanded(!isNavExpanded)}} >
+                <img src={menuIcon} alt="Menu" />
+            </button>
+
+            <span className={isNavExpanded ? 'name expanded' : 'name'}>Name : Yusef</span>
+            <div className={isNavExpanded ? 'links expanded' : 'links'}>
+                <Link to="/login" onClick={() => {setIsNavExpanded(!isNavExpanded)}}>Login</Link>
+                <Link to="/register" onClick={() => {setIsNavExpanded(!isNavExpanded)}}>Register</Link>
             </div>
-
-
         </nav>
         <Outlet />
     </>
