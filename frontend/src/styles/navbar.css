@@ -1,4 +1,4 @@
-@font-face{
+@font-face {
     font-family: mainTitle;
     src: url(../utils/BungeeSpice-Regular.ttf);
 }
@@ -10,7 +10,9 @@
     background-color: rgb(20, 164, 221);
     padding: 20px;
     position: fixed;
-    width: calc(100vw - 40px); /* minus padding */
+    top: 0;
+    width: calc(100vw - 40px);
+    /* minus padding */
     height: 3rem;
     box-shadow: 2px 2px silver;
 }
@@ -23,6 +25,7 @@
     border-radius: 8px;
     text-decoration: none;
 }
+
 .navbar .main a:hover {
     background-color: aqua;
 }
@@ -55,12 +58,13 @@
     color: orange;
 }
 
-.menu{
+.menu {
     display: none;
 }
 
 /* Add media query for the menu button */
 @media (max-width: 450px) {
+
     .menu {
         display: flex;
         max-width: 5rem;
@@ -80,7 +84,8 @@
         width: 30px;
     }
 
-    .navbar .name, .navbar .links {
+    .navbar .name,
+    .navbar .links {
         display: none;
         position: fixed;
         width: 100vw;
@@ -90,19 +95,27 @@
         justify-content: flex-start;
         left: 0;
     }
-    .navbar .name{
+
+    .navbar {
+        z-index: 100;
+    }
+
+    .navbar .name {
         padding-top: 30px;
         background-color: rgb(135, 206, 235, 0.5);
         top: calc(3rem + 40px);
     }
-    .navbar .links{
+
+    .navbar .links {
         top: calc(13rem);
     }
-    .navbar .links a{
+
+    .navbar .links a {
         color: black;
     }
 
-    .navbar .links.expanded, .navbar .name.expanded {
+    .navbar .links.expanded,
+    .navbar .name.expanded {
         display: flex;
     }
 
@@ -123,7 +136,7 @@
         }
     }
 
-    .navbar .links{
+    .navbar .links {
         animation: 1.25s drop-links;
     }
 
