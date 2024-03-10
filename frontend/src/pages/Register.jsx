@@ -14,10 +14,10 @@ function Register() {
                 </div>
                 <div className="row">
                     <div className="col-25">
-                        <label htmlFor="lname">Last Name</label>
+                        <label htmlFor="email">Email</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+                        <input type="email" id="email" name="email" placeholder="Your Email.." />
                     </div>
                 </div>
                 <div className="row">
