@@ -63,7 +63,7 @@
 }
 
 /* Add media query for the menu button */
-@media (max-width: 450px) {
+@media (max-width: 600px) {
 
     .menu {
         display: flex;
