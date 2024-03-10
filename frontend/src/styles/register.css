@@ -73,8 +73,7 @@ input[type=submit]:hover {
 legend{
     align-self: center;
     font-size: 2rem;
-    color: white;
-    background-color: rgb(83, 80, 80);
+    color: black;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 2rem;
