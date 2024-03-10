@@ -2,6 +2,7 @@ import '../styles/register.css';
 function Register() {
     return (
         <div className="form-container">
+            <legend>Register User</legend>
             <form action="">
                 <div className="row">
                     <div className="col-25">

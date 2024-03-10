@@ -16,12 +16,13 @@ label {
 }
 
 input[type=submit] {
-    margin-top: 2rem;
+    margin-top: 4rem;
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
     border: none;
     width: 70%;
+    max-width: 300px;
     border-radius: 4px;
     cursor: pointer;
 
@@ -32,13 +33,19 @@ input[type=submit]:hover {
 }
 
 .form-container {
+    flex: 1;
     border-radius: 5px;
     padding: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    width: 80vw;
+    max-width: 900px;
     top: calc(3rem + 45px);
+    background-color: rgb(211, 210, 210);
+    margin: 3rem;
+    align-self: center;
+    
 }
 
 /* Floating column for labels: 25% width */
@@ -50,6 +57,7 @@ input[type=submit]:hover {
 /* Floating column for inputs: 75% width */
 .col-75 {
     width: 75%;
+    max-width: 500px;
     margin-top: 0.5rem;
 }
 
@@ -61,6 +69,17 @@ input[type=submit]:hover {
     align-content: center;
     justify-content: center;
 }
+
+legend{
+    align-self: center;
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(83, 80, 80);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
 
 
 

@@ -4,3 +4,13 @@ body {
     width: 100%;
     font-size: 8px;
 }
+
+#root{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    
+
+}
+
+
