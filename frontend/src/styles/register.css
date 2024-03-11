@@ -33,19 +33,19 @@ input[type=submit]:hover {
 }
 
 .form-container {
-    flex: 1;
     border-radius: 5px;
     padding: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 80vw;
+    border: 2px solid red;
     max-width: 900px;
     top: calc(3rem + 45px);
     background-color: rgb(211, 210, 210);
     margin: 3rem;
     align-self: center;
-    
+
 }
 
 /* Floating column for labels: 25% width */
@@ -70,7 +70,7 @@ input[type=submit]:hover {
     justify-content: center;
 }
 
-legend{
+legend {
     align-self: center;
     font-size: 2rem;
     color: black;
