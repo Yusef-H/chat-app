@@ -42,9 +42,9 @@ input[type=submit]:hover {
     max-width: 900px;
     top: calc(3rem + 45px);
     background-color: rgb(211, 210, 210);
-    margin: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
     align-self: center;
-
 }
 
 /* Floating column for labels: 25% width */
