@@ -1,5 +1,9 @@
+import { useContext } from 'react';
 import '../styles/register.css';
+import { UserContext } from '../context/userContext';
 function Register() {
+    const { user } = useContext(UserContext);
+    const { registerInfo, setRegisterInfo } = useContext(UserContext);
     return (
         <div className="form-container">
             <legend>Register User</legend>
@@ -9,7 +13,8 @@ function Register() {
                         <label htmlFor="fname">First Name</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.." />
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
+                            onChange={(e) => { setRegisterInfo({ ...registerInfo, name: e.target.value }) }} />
                     </div>
                 </div>
                 <div className="row">
@@ -17,7 +22,8 @@ function Register() {
                         <label htmlFor="email">Email</label>
                     </div>
                     <div className="col-75">
-                        <input type="email" id="email" name="email" placeholder="Your Email.." />
+                        <input type="email" id="email" name="email" placeholder="Your Email.."
+                            onChange={(e) => { setRegisterInfo({ ...registerInfo, email: e.target.value }) }} />
                     </div>
                 </div>
                 <div className="row">
@@ -25,7 +31,8 @@ function Register() {
                         <label htmlFor="password">Password</label>
                     </div>
                     <div className="col-75">
-                        <input type="password" id="password" name="password" placeholder='Password' />
+                        <input type="password" id="password" name="password" placeholder='Password'
+                            onChange={(e) => { setRegisterInfo({ ...registerInfo, password: e.target.value }) }} />
                     </div>
                 </div>
                 <div className="row">

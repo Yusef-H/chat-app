@@ -39,7 +39,6 @@ input[type=submit]:hover {
     display: flex;
     flex-direction: column;
     width: 80vw;
-    border: 2px solid red;
     max-width: 900px;
     top: calc(3rem + 45px);
     background-color: rgb(211, 210, 210);
