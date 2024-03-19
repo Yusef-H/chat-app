@@ -1,6 +1,6 @@
 @font-face {
     font-family: mainTitle;
-    src: url(../utils/BungeeSpice-Regular.ttf);
+    src: url(../assets/BungeeSpice-Regular.ttf);
 }
 
 .navbar {
@@ -63,7 +63,7 @@
     display: none;
 }
 
-/* Add media query for the menu button */
+
 @media (max-width: 600px) {
 
     .menu {

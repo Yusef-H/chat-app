@@ -1,5 +1,5 @@
 import '../styles/navbar.css'
-import menuIcon from '../utils/menuIcon.svg';
+import menuIcon from '../assets/menuIcon.svg';
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 function Navbar() {
