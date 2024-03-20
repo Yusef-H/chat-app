@@ -44,7 +44,7 @@ function Register() {
             </form>
             <h3>error: {error}</h3>
         </div>
-        
+
 
     );
 }

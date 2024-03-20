@@ -4,7 +4,7 @@ export const postRequest = async (url, body) => {
     const res = await fetch(url, {
         method: "POST",
         headers: {
-            "Content-Type" : "application/json",
+            "Content-Type": "application/json",
         },
         body,
     });
@@ -12,17 +12,17 @@ export const postRequest = async (url, body) => {
 
     const data = await res.json();
     console.log(data);
-    if(!res.ok){
+    if (!res.ok) {
         let message;
 
-        if(data.message != null){
+        if (data.message != null) {
             message = data.message;
         }
-        else{
+        else {
             message = data;
         }
 
-        return {errorOccurred: true, message};
+        return { errorOccurred: true, message };
     }
 
 
@@ -31,4 +31,4 @@ export const postRequest = async (url, body) => {
 }
 
 
-export const baseUrl = "http://localhost:5173";
+export const baseUrl = "http://localhost:3000";
