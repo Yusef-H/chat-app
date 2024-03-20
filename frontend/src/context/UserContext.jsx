@@ -22,10 +22,10 @@ export const UserContextProvider = ({ children }) => {
         setIsLoading(true);
         setError(null);
         const res = await postRequest(`${baseUrl}/users/register`, JSON.stringify(registerInfo));
-        
+
         setIsLoading(false);
-        if(res.errorOccurred){
-            setError(res);
+        if (res.errorOccurred) {
+            setError(res.message);
         }
 
         setUser(res);

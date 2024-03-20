@@ -8,7 +8,6 @@ export const postRequest = async (url, body) => {
         },
         body,
     });
-    console.log(res);
 
     const data = await res.json();
     console.log(data);
