@@ -42,7 +42,11 @@ function Register() {
                 </div>
                 <div className="row"></div>
             </form>
-            <h3>error: {error}</h3>
+            {
+                (error != null ?
+                    <h3 className='error-msg'>{error}</h3> :
+                    <h3></h3>)
+            };
         </div>
 
 

@@ -47,13 +47,23 @@ input[type=submit]:hover {
     align-self: center;
 }
 
-/* Floating column for labels: 25% width */
+.error-msg {
+    background-color: rgb(255, 0, 0);
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-family: Arial, Helvetica;
+
+
+}
+
+
 .col-25 {
     width: 25%;
     margin-top: 0.5rem;
 }
 
-/* Floating column for inputs: 75% width */
 .col-75 {
     width: 75%;
     max-width: 500px;
