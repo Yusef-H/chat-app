@@ -1,9 +1,11 @@
 import '../styles/navbar.css'
 import menuIcon from '../assets/menuIcon.svg';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { UserContext } from '../context/userContext';
 function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
+    const { user } = useContext(UserContext);
 
     return <>
         <nav className='navbar'>
@@ -16,7 +18,7 @@ function Navbar() {
                 <img src={menuIcon} alt="Menu" />
             </button>
 
-            <span className={isNavExpanded ? 'name expanded' : 'name'}>Name : Yusef</span>
+            <span className={isNavExpanded ? 'name expanded' : 'name'}>Name : {user?.name}</span>
             <div className={isNavExpanded ? 'links expanded' : 'links'}>
                 <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Login</Link>
                 <Link to="/register" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Register</Link>

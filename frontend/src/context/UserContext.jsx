@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { baseUrl, postRequest } from "../utilities/httpReqs";
 
 
@@ -31,6 +31,10 @@ export const UserContextProvider = ({ children }) => {
         setUser(res);
         localStorage.setItem("User", JSON.stringify(res));
     }
+
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("User")));
+    }, []);
 
 
     return <UserContext.Provider value={{

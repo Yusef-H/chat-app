@@ -21,8 +21,8 @@ const register = async (req, res) => {
         if (!validator.isEmail(email)) {
             return res.status(400).json("Invalid email.");
         }
-        if (!validator.isStrongPassword(password)) {
-            return res.status(400).json("Weak password.");
+        if (password.length < 5) {
+            return res.status(400).json("Password is too short..");
         }
 
 
