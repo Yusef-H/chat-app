@@ -34,16 +34,15 @@ input[type=submit]:hover {
 
 .form-container {
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 80vw;
     max-width: 900px;
-    top: calc(3rem + 45px);
+    top: calc(4rem + 45px);
     background-color: rgb(211, 210, 210);
-    margin-top: 3rem;
-    margin-bottom: 10rem;
+    margin-bottom: calc(4rem + 45px + 1rem);
     align-self: center;
 }
 
@@ -51,6 +50,7 @@ input[type=submit]:hover {
     background-color: rgb(255, 0, 0);
     padding: 15px;
     font-size: 1.5rem;
+
     border-radius: 8px;
     color: white;
     font-family: Arial, Helvetica;

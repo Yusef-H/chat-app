@@ -46,7 +46,7 @@ function Register() {
                 (error != null ?
                     <h3 className='error-msg'>{error}</h3> :
                     <h3></h3>)
-            };
+            }
         </div>
 
 

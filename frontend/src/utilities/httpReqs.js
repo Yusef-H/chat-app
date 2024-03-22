@@ -1,6 +1,6 @@
 
 export const postRequest = async (url, body) => {
-    console.log(url);
+    // console.log(url);
     const res = await fetch(url, {
         method: "POST",
         headers: {
@@ -10,7 +10,7 @@ export const postRequest = async (url, body) => {
     });
 
     const data = await res.json();
-    console.log(data);
+
     if (!res.ok) {
         let message;
 
