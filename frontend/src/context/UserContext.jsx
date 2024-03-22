@@ -32,6 +32,11 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("User", JSON.stringify(res));
     }
 
+    const logoutUser = () => {
+        localStorage.removeItem("User");
+        setUser(null);
+    }
+
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("User")));
     }, []);
@@ -42,7 +47,8 @@ export const UserContextProvider = ({ children }) => {
         registerInfo,
         error,
         setRegisterInfo, //Look into usecallback for optimization
-        registerUser
+        registerUser,
+        logoutUser
     }}>
         {children}
     </UserContext.Provider>

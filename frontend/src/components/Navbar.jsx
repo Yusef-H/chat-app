@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const { user } = useContext(UserContext);
+    const { user, logoutUser } = useContext(UserContext);
 
     return <>
         <nav className='navbar'>
@@ -20,9 +20,10 @@ function Navbar() {
 
             <span className={isNavExpanded ? 'name expanded' : 'name'}>Name : {user?.name}</span>
             <div className={isNavExpanded ? 'links expanded' : 'links'}>
-                {user == null ? <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Login</Link> :
-                    <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}> Logout </Link>}
-                <Link to="/register" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Register</Link>
+                {user == null ? <><Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Login</Link>
+                    <Link to="/register" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Register</Link></> :
+                    <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded); logoutUser() }}> Logout </Link>}
+
             </div>
         </nav >
         <Outlet />
