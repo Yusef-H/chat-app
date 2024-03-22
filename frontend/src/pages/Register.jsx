@@ -9,7 +9,7 @@ function Register() {
     return (
         <div className="form-container">
             <legend>Register User</legend>
-            <form onSubmit={registerUser}>
+            <form onSubmit={registerUser} action='/'>
                 <div className="row">
                     <div className="col-25">
                         <label htmlFor="fname">First Name</label>

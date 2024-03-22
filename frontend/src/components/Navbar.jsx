@@ -20,7 +20,8 @@ function Navbar() {
 
             <span className={isNavExpanded ? 'name expanded' : 'name'}>Name : {user?.name}</span>
             <div className={isNavExpanded ? 'links expanded' : 'links'}>
-                <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Login</Link>
+                {user == null ? <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Login</Link> :
+                    <Link to="/login" onClick={() => { setIsNavExpanded(!isNavExpanded) }}> Logout </Link>}
                 <Link to="/register" onClick={() => { setIsNavExpanded(!isNavExpanded) }}>Register</Link>
             </div>
         </nav >
