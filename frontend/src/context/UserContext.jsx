@@ -12,7 +12,11 @@ export const UserContextProvider = ({ children }) => {
         email: "",
         password: ""
     });
-    const [error, setError] = useState(null);
+    const [loginInfo, setLoginInfo] = useState({
+        email: "",
+        password: ""
+    });
+    const [registerError, setRegisterError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -20,12 +24,28 @@ export const UserContextProvider = ({ children }) => {
     const registerUser = async (event) => {
         event.preventDefault();
         setIsLoading(true);
-        setError(null);
+        setRegisterError(null);
         const res = await postRequest(`${baseUrl}/users/register`, JSON.stringify(registerInfo));
 
         setIsLoading(false);
         if (res.errorOccurred) {
-            setError(res.message);
+            setRegisterError(res.message);
+        }
+
+        setUser(res);
+        localStorage.setItem("User", JSON.stringify(res));
+    }
+
+    const loginUser = async (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+        setRegisterError(null);
+        const res = await postRequest(`${baseUrl}/users/login`, JSON.stringify(loginInfo));
+
+        setIsLoading(false);
+        if (res.errorOccurred) {
+            setLoginError(res.message);
+            return;
         }
 
         setUser(res);
@@ -45,10 +65,13 @@ export const UserContextProvider = ({ children }) => {
     return <UserContext.Provider value={{
         user,
         registerInfo,
-        error,
+        registerError,
         setRegisterInfo, //Look into usecallback for optimization
         registerUser,
-        logoutUser
+        logoutUser,
+        loginUser,
+        loginInfo,
+        setLoginInfo
     }}>
         {children}
     </UserContext.Provider>

@@ -3,13 +3,13 @@ import '../styles/register.css';
 import { UserContext } from '../context/userContext';
 function Register() {
     const { user } = useContext(UserContext);
-    const { registerInfo, setRegisterInfo, registerUser, error } = useContext(UserContext);
+    const { registerInfo, setRegisterInfo, registerUser, registerError } = useContext(UserContext);
 
 
     return (
         <div className="form-container">
             <legend>Register User</legend>
-            <form onSubmit={registerUser} action='/'>
+            <form onSubmit={registerUser}>
                 <div className="row">
                     <div className="col-25">
                         <label htmlFor="fname">First Name</label>
@@ -43,8 +43,8 @@ function Register() {
                 <div className="row"></div>
             </form>
             {
-                (error != null ?
-                    <h3 className='error-msg'>{error}</h3> :
+                (registerError != null ?
+                    <h3 className='error-msg'>{registerError}</h3> :
                     <h3></h3>)
             }
         </div>
