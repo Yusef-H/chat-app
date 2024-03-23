@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { baseUrl } from "../utilities/httpReqs";
 function Login() {
-    const { loginInfo, loginUser, setLoginInfo } = useContext(UserContext);
+    const { loginInfo, loginUser, setLoginInfo, loginError } = useContext(UserContext);
     return (
         <div className="form-container">
             <legend>Login User</legend>
@@ -30,6 +30,11 @@ function Login() {
                 </div>
                 <div className="row"></div>
             </form>
+            {
+                (loginError != null ?
+                    <h3 className='error-msg'>{loginError}</h3> :
+                    <h3></h3>)
+            }
         </div>
 
     );

@@ -17,6 +17,7 @@ export const UserContextProvider = ({ children }) => {
         password: ""
     });
     const [registerError, setRegisterError] = useState(null);
+    const [loginError, setLoginError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
 
@@ -39,7 +40,7 @@ export const UserContextProvider = ({ children }) => {
     const loginUser = async (event) => {
         event.preventDefault();
         setIsLoading(true);
-        setRegisterError(null);
+        setLoginError(null);
         const res = await postRequest(`${baseUrl}/users/login`, JSON.stringify(loginInfo));
 
         setIsLoading(false);
@@ -71,7 +72,8 @@ export const UserContextProvider = ({ children }) => {
         logoutUser,
         loginUser,
         loginInfo,
-        setLoginInfo
+        setLoginInfo,
+        loginError
     }}>
         {children}
     </UserContext.Provider>
