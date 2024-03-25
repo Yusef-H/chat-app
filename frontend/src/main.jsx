@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <UserContextProvider>
         <Router>
-
+          <UserContextProvider></UserContextProvider>
         </Router>
       </UserContextProvider>
 
