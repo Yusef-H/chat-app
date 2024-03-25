@@ -6,7 +6,7 @@ function Login() {
     return (
         <div className="form-container">
             <legend>Login User</legend>
-            <form action="/home" onSubmit={loginUser}>
+            <form onSubmit={loginUser}>
                 <div className="row">
                     <div className="col-25">
                         <label htmlFor="email">Email</label>

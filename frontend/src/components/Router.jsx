@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Navbar from "./Navbar";
 
 
+
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const Router = () => {
   ]);
 
   return <RouterProvider router={router} />;
-  
+
 };
 
 export default Router;

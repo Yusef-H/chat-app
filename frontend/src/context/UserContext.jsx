@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { baseUrl, postRequest } from "../utilities/httpReqs";
+import { useNavigate } from "react-router-dom";
 
 
 export const UserContext = createContext({});
@@ -19,6 +20,8 @@ export const UserContextProvider = ({ children }) => {
     const [registerError, setRegisterError] = useState(null);
     const [loginError, setLoginError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    // const navigate = useNavigate();
+
 
 
 
@@ -31,6 +34,7 @@ export const UserContextProvider = ({ children }) => {
         setIsLoading(false);
         if (res.errorOccurred) {
             setRegisterError(res.message);
+            return;
         }
 
         setUser(res);
@@ -48,6 +52,9 @@ export const UserContextProvider = ({ children }) => {
             setLoginError(res.message);
             return;
         }
+
+
+        // navigate("/");
 
         setUser(res);
         localStorage.setItem("User", JSON.stringify(res));
