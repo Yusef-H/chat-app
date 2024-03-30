@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/user");
+const chatRouter = require("./routes/chat");
 
 
 require("dotenv").config();
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 app.use("/users", userRouter);
+app.use("/chat", chatRouter);
 
 
 app.listen(PORT, (req, res) => {

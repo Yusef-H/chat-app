@@ -45,7 +45,7 @@ const getChat = async (req, res) => {
     const { firstId, secondId } = req.params;
 
     try {
-        const chat = chatModel.find({
+        const chat = chatModel.findOne({
             participants: { $all: [firstId, secondId] }
         });
 
@@ -56,3 +56,5 @@ const getChat = async (req, res) => {
         res.status(500).json(e);
     }
 }
+
+module.exports = { createChat, getUserChats, getChat };
