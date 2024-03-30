@@ -18,11 +18,25 @@ const createChat = async (req, res) => {
         const saveResponse = await newChat.save();
 
         res.status(200).json(saveResponse);
-
-
     }
     catch (e) {
         console.log(e);
         res.status(500).json(error);
+    }
+}
+
+const getUserChats = async (req, res) => {
+    const id = req.params.userId;
+
+    try {
+        const userChats = chatModel.find({
+            participants: { $in: [id] }
+        });
+
+        res.status(200).json(userChats);
+    }
+    catch (e) {
+        console.log(e);
+        res.status(500).json(e);
     }
 }
