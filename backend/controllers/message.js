@@ -16,4 +16,17 @@ const createNewMessage = async (req, res) => {
     }
 }
 
-module.exports = {createNewMessage};
+const getAllMessages = async (req, res) => {
+    const {chatId} = req.params;
+
+    try{
+        const messages = await messageModel.find({chatId});
+        res.status(200).json(messages);
+    }
+    catch(e){
+        console.log(e);
+        res.status(500).json(e);
+    }
+}
+
+module.exports = {createNewMessage, getAllMessages};
