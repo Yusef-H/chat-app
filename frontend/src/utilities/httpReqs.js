@@ -23,11 +23,24 @@ export const postRequest = async (url, body) => {
 
         return { errorOccurred: true, message };
     }
-
-
     return data;
 
 }
 
+export const getRequest = async (url) => {
+    const res = await fetch(url);
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        let message = "fetch error";
+        if (data?.message) {
+            message = data.message;
+        }
+
+        return { errorOccurred: true, message };
+    }
+
+}
 
 export const baseUrl = "http://localhost:3000";
