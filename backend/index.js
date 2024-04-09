@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 app.use("/users", userRouter);
-app.use("/chat", chatRouter);
+app.use("/chats", chatRouter);
 app.use("/message", messageRouter);
 
 
